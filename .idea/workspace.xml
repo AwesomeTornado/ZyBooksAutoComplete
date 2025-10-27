@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f13685c4-da1b-4c96-8dcf-57c79a02d77d" name="Changes" comment="really just testing my commit messages.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ZyBookSection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ZyBooksActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ZyBooksActivityData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ZyBooksActivityMetadata.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ZyBooksAllAssignments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="f13685c4-da1b-4c96-8dcf-57c79a02d77d" name="Changes" comment="Successfull iteration of all problems">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ZyBooksAutoComplete.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ZyBooksAutoComplete.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ZyBooksAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ZyBooksBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ZyBooksActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ZyBooksActivityMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksActivityMetadata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ZyBooksBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksAutoComplete.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +26,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "AwesomeTornado"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AwesomeTornado/ZyBooksAutoComplete.git",
+    "accountId": "303364cc-6a35-46a2-844e-11097011d17e"
+  }
+}]]></component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="5xei1ecm" />
   </component>
@@ -57,7 +63,8 @@
     "git-widget-placeholder": "master",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
   <component name="RunManager">
@@ -78,6 +85,30 @@
       <option name="presentableId" value="Default" />
       <updated>1761526575357</updated>
     </task>
+    <task id="LOCAL-00001" summary="Successfull iteration of all problems">
+      <option name="closed" value="true" />
+      <created>1761538061425</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761538061425</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Successfull iteration of all problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfull iteration of all problems" />
   </component>
 </project>

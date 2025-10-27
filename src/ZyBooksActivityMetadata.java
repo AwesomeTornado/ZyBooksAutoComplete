@@ -2,7 +2,7 @@ public class ZyBooksActivityMetadata {
     private String activity_type;
     private long canonical_section_id;
     private String caption;
-    private long content_resource_id;
+    private int content_resource_id;
     private Object optional;
     private int parts;
     private String payload;
@@ -25,5 +25,23 @@ public class ZyBooksActivityMetadata {
             message.append(" is used to complete this problem.");
         }
         return message.toString();
+    }
+    public int getParts(){
+        return parts;
+    }
+
+    public int getContentResourceID(){
+        return content_resource_id;
+    }
+
+    public String getActivityType(){
+        return activity_type;
+    }
+
+    public String getResourceType(){
+        return resource_type;
+    }
+    public String getTool(){
+        return tool;
     }
 }
