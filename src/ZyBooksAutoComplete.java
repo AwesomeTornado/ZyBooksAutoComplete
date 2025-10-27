@@ -4,8 +4,12 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Vector;
+import java.security.MessageDigest;
 
 import com.google.gson.Gson;
 
@@ -81,8 +85,50 @@ public class ZyBooksAutoComplete {
         }
     }
 
+    //https://stackoverflow.com/questions/9655181/java-convert-a-byte-array-to-a-hex-string
+    private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
+    public static String bytesToHex(byte[] bytes) {
+        char[] hexChars = new char[bytes.length * 2];
+        for (int j = 0; j < bytes.length; j++) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+            hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+        }
+        return new String(hexChars);
+    }
+
+    private String get_buildkey(){
+        return "45242603-99c8-4df4-e466-df5f14656d0c";
+        //fuch this shit this is so hard to extract.
+        //resolveRegistration("config:environment")["APP"]["BUILDKEY"]
+    }
+
+    private String checksum(int contentID, String ts){
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            String path = "content_resource/" + contentID + "/activity" + ts + JWT_USER_KEY + contentID + "0" + "true" + get_buildkey();
+            return bytesToHex(md.digest((path).getBytes())).toLowerCase();
+            //data = f"content_resource/{act_id}/activity{ts}{auth}{act_id}{part}true{get_buildkey()}"
+        }
+        catch (Exception e){
+            System.out.println("An exception has occurred in method checksum");
+            System.out.println(e);
+            return null;
+        }
+    }
+
     private void autoCompleteAnimator(ZyBooksActivityMetadata question){
         try {
+
+            LocalDateTime currentDateTime = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+            //2025-10-27T05:12:33.571Z
+            String timestamp = currentDateTime.format(formatter);
+            timestamp = timestamp.replace(" ", "T");
+            System.out.println("Current Timestamp: " + timestamp);
+            String checksum = checksum(question.getContentResourceID(), timestamp);
+            System.out.println("Current Checksum: " + checksum);
+
             URL url = new URL(contentURI(question.getContentResourceID()));
             System.out.println(url);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -92,8 +138,11 @@ public class ZyBooksAutoComplete {
 
             OutputStream bodyStream = con.getOutputStream();
             OutputStreamWriter bodyWriter = new OutputStreamWriter(bodyStream, "UTF-8");
-            bodyWriter.write("{\"part\":0,\"complete\":true,\"metadata\":\"{\\\"event\\\":\\\"start clicked.\\\",\\\"isTrusted\\\":{\\\"isTrusted\\\":true},\\\"computerTime\\\":\\\"2025-10-27T05:12:33.571Z\\\"}\",\"zybook_code\":\"" + code + "\",\"timestamp\":\"2025-10-27T05:12:33.572Z\",\"__cs__\":\"c7c78430ea8cbeb0724a505f8366f31a\"}");
-            //YouLikeKissingBoysDontYouuuuuBecauseYouAreABoyKisser
+            String body = "{\"part\":0,\"complete\":true,\"metadata\":\"{\\\"event\\\":\\\"start clicked." +
+                    "\\\",\\\"isTrusted\\\":{\\\"isTrusted\\\":true},\\\"computerTime\\\":\\\"" + timestamp +
+                    "\\\"}\",\"zybook_code\":\"" + code + "\",\"timestamp\":\"" + timestamp +
+                    "\",\"__cs__\":\""+ checksum + "\"}";
+            bodyWriter.write(body);
             bodyWriter.flush();
             bodyWriter.close();
             bodyStream.close();  //don't forget to close the OutputStream
@@ -104,5 +153,4 @@ public class ZyBooksAutoComplete {
             System.out.println(e);
         }
     }
-
 }

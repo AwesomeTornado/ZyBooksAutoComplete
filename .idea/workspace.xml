@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f13685c4-da1b-4c96-8dcf-57c79a02d77d" name="Changes" comment="Successfull iteration of all problems">
+    <list default="true" id="f13685c4-da1b-4c96-8dcf-57c79a02d77d" name="Changes" comment="Need to fix checksum creation, add timestamp generation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ZyBooksActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ZyBooksActivityMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksActivityMetadata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ZyBooksBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksAutoComplete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ZyBooksAutoComplete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksAutoComplete.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761538061425</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Need to fix checksum creation, add timestamp generation.">
+      <option name="closed" value="true" />
+      <created>1761543353754</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1761543353754</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,6 +114,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Successfull iteration of all problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="Successfull iteration of all problems" />
+    <MESSAGE value="Need to fix checksum creation, add timestamp generation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Need to fix checksum creation, add timestamp generation." />
   </component>
 </project>
