@@ -6,7 +6,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Vector;
 import java.security.MessageDigest;
@@ -75,12 +74,10 @@ public class ZyBooksAutoComplete {
     }
 
     public void completeEverything(){
-        for (ZyBooksActivityMetadata question : remainingQuestions){
-            if (question.getResourceType().equals("custom")){
-                if(question.getTool().equals("zyAnimator")){
-                    System.out.println(question);
-                    autoCompleteAnimator(question);
-                }
+        for (ZyBooksActivityMetadata question : remainingQuestions) {
+            System.out.println(question);
+            for (int part = 0; part < question.getParts(); part++){
+                autoComplete(question, part);
             }
         }
     }
@@ -103,11 +100,13 @@ public class ZyBooksAutoComplete {
         //resolveRegistration("config:environment")["APP"]["BUILDKEY"]
     }
 
-    private String checksum(int contentID, String ts){
+    private String checksum(int contentID, String ts, int part){
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            String path = "content_resource/" + contentID + "/activity" + ts + JWT_USER_KEY + contentID + "0" + "true" + get_buildkey();
-            return bytesToHex(md.digest((path).getBytes())).toLowerCase();
+            String path = "zybook/" + code;
+            String preHash = "content_resource/" + contentID + "/activity" + ts + JWT_USER_KEY + contentID + part + "true" + get_buildkey();
+            System.out.println(preHash);
+            return bytesToHex(md.digest((preHash).getBytes())).toLowerCase();
             //data = f"content_resource/{act_id}/activity{ts}{auth}{act_id}{part}true{get_buildkey()}"
         }
         catch (Exception e){
@@ -117,16 +116,16 @@ public class ZyBooksAutoComplete {
         }
     }
 
-    private void autoCompleteAnimator(ZyBooksActivityMetadata question){
+    private void autoComplete(ZyBooksActivityMetadata question, int part){
         try {
 
             LocalDateTime currentDateTime = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
             //2025-10-27T05:12:33.571Z
             String timestamp = currentDateTime.format(formatter);
-            timestamp = timestamp.replace(" ", "T");
+            timestamp = timestamp.replace(" ", "T") + "Z";
             System.out.println("Current Timestamp: " + timestamp);
-            String checksum = checksum(question.getContentResourceID(), timestamp);
+            String checksum = checksum(question.getContentResourceID(), timestamp, part);
             System.out.println("Current Checksum: " + checksum);
 
             URL url = new URL(contentURI(question.getContentResourceID()));
@@ -135,18 +134,29 @@ public class ZyBooksAutoComplete {
             con.setDoOutput(true);
             con.setRequestMethod("POST");
             con.setRequestProperty("authorization", authorizer());
-
+            con.setRequestProperty("path", "/v1/content_resource/" + question.getContentResourceID() + "/activity");
             OutputStream bodyStream = con.getOutputStream();
             OutputStreamWriter bodyWriter = new OutputStreamWriter(bodyStream, "UTF-8");
-            String body = "{\"part\":0,\"complete\":true,\"metadata\":\"{\\\"event\\\":\\\"start clicked." +
+            String body = "{\"part\":" + part + ",\"complete\":true,\"metadata\":\"{\\\"event\\\":\\\"start clicked." +
                     "\\\",\\\"isTrusted\\\":{\\\"isTrusted\\\":true},\\\"computerTime\\\":\\\"" + timestamp +
                     "\\\"}\",\"zybook_code\":\"" + code + "\",\"timestamp\":\"" + timestamp +
                     "\",\"__cs__\":\""+ checksum + "\"}";
+            //oh checksum doesn't even matter lmao
+            System.out.println(body);
             bodyWriter.write(body);
             bodyWriter.flush();
             bodyWriter.close();
             bodyStream.close();  //don't forget to close the OutputStream
             con.connect();
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer content = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+            String response = content.toString();
+            System.out.println(response);
         }
         catch(Exception e){
             System.out.println("An exception has occurred in method autoCompleteAnimator");
