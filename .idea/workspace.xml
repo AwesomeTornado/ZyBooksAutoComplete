@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f13685c4-da1b-4c96-8dcf-57c79a02d77d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ZyBooksAutoComplete.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ZyBooksAssignment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ZyBooksBook.java" afterDir="false" />
+    <list default="true" id="f13685c4-da1b-4c96-8dcf-57c79a02d77d" name="Changes" comment="really just testing my commit messages.">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ZyBookSection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ZyBooksActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ZyBooksActivityData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ZyBooksActivityMetadata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ZyBooksAllAssignments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZyBooksAutoComplete.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ZyBooksAutoComplete.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ZyBooksAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ZyBooksBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZyBooksBook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +39,36 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="34cxHOk6tmyt2VL891oQ7qVBKfv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ZyBooksAutoComplete" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
